@@ -40,22 +40,19 @@ In the production mode, we will have only 1 server running. All the client side 
 
 ```bash
 # Clone the repository
-git clone https://github.com/crsandeep/simple-react-full-stack
-
-# Go inside the directory
-cd simple-react-full-stack
+git clone https://github.com/KatPro77/team-triumph
 
 # Install dependencies
-yarn (or npm install)
+yarn install
 
 # Start development server
-yarn dev (or npm run dev)
+yarn dev 
 
 # Build for production
-yarn build (or npm run build)
+yarn build 
 
 # Start production server
-yarn start (or npm start)
+yarn start 
 ```
 
 ## Documentation
@@ -63,6 +60,9 @@ yarn start (or npm start)
 ### Folder Structure
 
 All the source code will be inside **src** directory. Inside src, there is client and server directory. All the frontend code (react, css, js and any other assets) will be in client directory. Backend Node.js/Express code will be in the server directory.
+
+### Material 
+Using React Matirial for front end.  For more information / documetation please visit:  https://material-ui.com/.
 
 ### Babel
 
