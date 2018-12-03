@@ -30,19 +30,6 @@ export default class Navbar extends Component {
                 <AppBar position="static">
                     <Toolbar>
                         <IconButton color="inherit" aria-label="Menu">
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography variant="h6" color="inherit">
-                            World of Animals
-                        </Typography>
-
-                        <Button
-                            aria-owns={anchorEl ? 'simple-menu' : undefined}
-                            aria-haspopup="true"
-                            onClick={this.handleClick}
-                        >
-                            Open Menu
-                        </Button>
                         <Menu
                             id="simple-menu"
                             anchorEl={anchorEl}
@@ -56,6 +43,20 @@ export default class Navbar extends Component {
                             <MenuItem onClick={this.handleClose}>Habitats</MenuItem>
                             
                         </Menu>
+                            
+                        </IconButton>
+                        <Typography variant="h6" color="inherit">
+                            World of Animals
+                        </Typography>
+
+                        <Button
+                            aria-owns={anchorEl ? 'simple-menu' : undefined}
+                            aria-haspopup="true"
+                            onClick={this.handleClick}
+                        >
+                            Open Menu
+                        </Button>
+                       
                     </Toolbar>
                 </AppBar>
 
