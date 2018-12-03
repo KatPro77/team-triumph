@@ -50,10 +50,7 @@ this.setState({ open: false });
       <div>
         <Navbar />
         <ButtonBases onClick={this.handleOpen}/>
-        <SimpleModalWrapped 
-        
-        />
-    
+        <SimpleModalWrapped  />
      </div>
     );
   }
