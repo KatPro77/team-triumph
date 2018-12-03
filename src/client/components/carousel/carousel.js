@@ -10,27 +10,27 @@ const tutorialSteps = [
   {
     label: 'Dragonfly',
     imgPath:
-      'src/client/assets/images/slides/dragonfly.jpg',
+      'src/client/assets/images/carouselslides/dragonfly.jpg',
   },
   {
     label: 'Frog',
     imgPath:
-      'src/client/assets/images/slides/frog.jpg',
+      'src/client/assets/images/carouselslides/frog.jpg',
   },
   {
     label: 'Meerkat',
     imgPath:
-      'src/client/assets/images/slides/meerkat.jpg',
+      'src/client/assets/images/carouselslides/meerkat.jpg',
   },
   {
     label: 'Snow Leopard',
     imgPath:
-      'src/client/assets/images/slides/snowleopard.jpg',
+      'src/client/assets/images/carouselslides/snowleopard.jpg',
   },
   {
     label: 'Vulture',
     imgPath:
-      'src/client/assets/images/slides/vulture.jpg',
+      'src/client/assets/images/carouselslides/vulture.jpg',
   },
 ];
 
