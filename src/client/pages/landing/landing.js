@@ -7,7 +7,6 @@ export default class Landing extends Component {
   render() {
     return (
       <div>
-        <Navbar />
         <Carousel />
       </div>
     );
