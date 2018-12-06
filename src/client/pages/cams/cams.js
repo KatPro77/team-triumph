@@ -38,19 +38,13 @@ import Button from '@material-ui/core/Button';
 
 class Cams extends Component {
   
-handleOpen = () => {
-  this.setState({ open: true });
-      };
-handleClose = () => {
-this.setState({ open: false });
-      };
 
   render() {
     return (
       <div>
         <Navbar />
-        <ButtonBases onClick={this.handleOpen}/>
         <SimpleModalWrapped  />
+
      </div>
     );
   }
