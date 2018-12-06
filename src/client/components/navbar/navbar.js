@@ -39,15 +39,23 @@ export default class Navbar extends Component {
                <MenuItem onClick={this.handleClose}>
                  <Link to={'/'}>Home</Link>
                </MenuItem>
+
                <MenuItem onClick={this.handleClose}>
-                 <Link to={'/Animals'}>Animals</Link>
+                 <Link to={'/animals'}>Animal Facts</Link>
                </MenuItem>
 
-               <MenuItem onClick={this.handleClose}>Cams</MenuItem>
-               <MenuItem onClick={this.handleClose}>Games</MenuItem>
-               <MenuItem onClick={this.handleClose}>Habitats</MenuItem>
-             </Menu>
+               <MenuItem onClick={this.handleClose}>
+                  <Link to={'/habitats'}>Live Cams</Link>
+                </MenuItem>
+
+               <MenuItem onClick={this.handleClose}>
+                <Link to={'/game-memory'}>Memory Game</Link>
+                </MenuItem>
+            </Menu>
+            
            </IconButton>
+
+
            <Typography variant="h6" color="inherit">
              World of Animals
            </Typography>

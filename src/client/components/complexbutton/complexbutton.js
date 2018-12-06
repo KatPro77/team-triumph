@@ -82,7 +82,6 @@ const styles = theme => ({
 
 function ButtonBases(props) {
   const { classes } = props;
-  const { animal } = props;
 
   return (
     <div className={classes.root}>
@@ -99,7 +98,10 @@ function ButtonBases(props) {
           <span
             className={classes.imageSrc}
             style={{
-              backgroundImage: `url(${animal.url})`,
+     
+      backgroundImage: "src/client/assets/images/cams/gorilla",
+     
+      
             }}
           />
           <span className={classes.imageBackdrop} />

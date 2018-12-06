@@ -51,19 +51,18 @@ class SimpleModal extends React.Component {
     const { classes } = this.props;
     const { animal } = this.props;
 
-// const gorillaCam = [
-//         {
-//           alt:'gorilla cam',
-//           src: "https://www.youtube.com/embed/pHtOPHLhQME",
-//           title: 'Gorilla Cam',
-//           width: '33%',
-//         },
-//       ];
+const gorillaCam = [
+        {
+          alt:'gorilla cam',
+          src: "https://www.youtube.com/embed/pHtOPHLhQME",
+          title: 'Gorilla Cam',
+          width: '33%',
+        },
+      ];
 
     return (
 
       <div>
-           {animal.map(animal => (
              <Button onClick={this.handleOpen}>
               <ButtonBases />
              </Button>
@@ -81,13 +80,13 @@ class SimpleModal extends React.Component {
                      className={classes.media}
                      height="315"
                      width="560"
-                     src= "{animal.url}"
+                     src= "https://www.youtube.com/embed/pHtOPHLhQME"
                      title={gorillaCam.title}>
                 </CardMedia>
             <SimpleModalWrapped />
           </div>
         </Modal>
-           ))}
+        
       </div>
     );
   }
