@@ -1,20 +1,22 @@
 const express = require('express');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
+const sequelize = require('sequelize');
 const routes = require('.');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 app.use(express.static('dist'));
+app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.json());
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 app.use(routes);
 
-// ? NOT SURE IF NEEDED HERE Connect to mysql DB
-//mysql.connect(process.env.mysql_URI || 'mysqldb://localhost/reactanimalslist');
+//Connect to mysql DB
+sequelize.connect(process.env.MYSQL_URI || ("mysqldb://localhost/reactanimalslist");
 
-// Start the server
-app.listen(PORT, function() {
-  console.log(`🌎  ==> Lislistening on PORT ${PORT}!`);
+app.listen(PORT, 8000 () {
+  console.log(`🌎  ==> Server is listening on PORT 8000 ${PORT 8000}!`);
 });
