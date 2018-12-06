@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 8000;
 
 app.use(express.static('dist'));
 app.use(bodyParser.urlencoded({ extended: true }));
-//app.use(bodyParser.json());
+app.use(bodyParser.json());
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
