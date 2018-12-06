@@ -49,22 +49,25 @@ class SimpleModal extends React.Component {
   
   render() {
     const { classes } = this.props;
+    const { animal } = this.props;
 
-const gorillaCam = [
-        {
-          alt:'gorilla cam',
-          src: "https://www.youtube.com/embed/pHtOPHLhQME",
-          title: 'Gorilla Cam',
-          width: '33%',
-        },
-      ];
+// const gorillaCam = [
+//         {
+//           alt:'gorilla cam',
+//           src: "https://www.youtube.com/embed/pHtOPHLhQME",
+//           title: 'Gorilla Cam',
+//           width: '33%',
+//         },
+//       ];
 
     return (
+
       <div>
-        <Typography gutterBottom>Gorilla Cam</Typography>
+           {animal.map(animal => (
              <Button onClick={this.handleOpen}>
+              <ButtonBases />
              </Button>
-        
+  
         <Modal
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
@@ -78,17 +81,18 @@ const gorillaCam = [
                      className={classes.media}
                      height="315"
                      width="560"
-                     src= "https://www.youtube.com/embed/pHtOPHLhQME"
+                     src= "{animal.url}"
                      title={gorillaCam.title}>
                 </CardMedia>
             <SimpleModalWrapped />
           </div>
         </Modal>
+           ))}
       </div>
     );
   }
 }
-
+           
 SimpleModal.propTypes = {
   classes: PropTypes.object.isRequired,
 };

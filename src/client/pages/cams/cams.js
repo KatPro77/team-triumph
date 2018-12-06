@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import Button from 'material-ui'
-import './cams.css';
-import Navbar from '../../components/navbar/navbar.js';
+import './cams.css'
+import Navbar from '../../components/navbar/navbar.js'
 import SimpleModalWrapped from '../../components/modal/modal.js'
 import ButtonBases from '../../components/complexbutton/complexbutton.js'
-import Button from '@material-ui/core/Button';
-
-
+import Button from '@material-ui/core/Button'
+import animals from './animals.json'
 
   
 // const gorillaCam = [
