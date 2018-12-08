@@ -1,6 +1,6 @@
 const axios = require('axios');
 const router = require('express').Router();
-const router = require('apiRoutes.js').create();
+// const router = require('apiRoutes.js').create();
 
 router.get('/api', (req, res) => {
   axios
