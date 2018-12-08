@@ -1,1 +1,1 @@
-export { default } from "./cams.js";
+export { default } from './Cams.js';
