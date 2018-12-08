@@ -1,65 +1,37 @@
 import React, { Component } from 'react'
 import './cams.css'
-import Navbar from '../../components/navbar/navbar.js'
-// import SimpleModalWrapped from '../../components/modal/modal.js'
-import ButtonBases from '../../components/complexbutton/complexbutton.js'
-import animals from '../../src/client/animal.json'
-import SimpleModalWrapped from '../../components/modal/modal';
+import SimpleModalWrapped from '../../components/modal/modal.js'
+import animals from 'src/client/animals.json'
+import { Typography } from '@material-ui/core'
+import ButtonBase from './complexbutton.js'
+
+class cams extends Component {
+ // Setting this.state.friends to the animals json array
+ state = {
+   animals
+ };
 
 
-  
-// const gorillaCam = [
-//     {
-//       alt:'gorilla cam',
-//       src: "https://www.youtube.com/embed/pHtOPHLhQME",
-//       title: 'Gorilla Cam',
-//       width: '33%',
-//     }
-//   ]; 
+ render() {
+   return (
 
-//   const bearCam = [
-//     {
-//       alt:'gorilla cam',
-//       src: "https://www.youtube.com/embed/pHtOPHLhQME",
-//       title: 'Gorilla Cam',
-//       width: '33%',
-//     },
-//   ]; 
+     <SimpleModalWrapped>
+     <Typography>Live Cams</Typography>
+     <ButtonBase />
 
-//   const pandaCam = [
-//     {
-//       alt:'gorilla cam',
-//       src: "https://www.youtube.com/embed/pHtOPHLhQME",
-//       title: 'Gorilla Cam',
-//       width: '33%',
-//     },
-//   ]; 
+     {this.state.animals.map(animals => (
+       <AnimalCard
+         id={animals.id}
+         key={animals.id}
+         name={animals.name}
+         image={animals.image}
+         video={animals.url}
+       />
+     ))}
 
-class Cams extends Component {
+   </SimpleModalWrapped>
 
-  state = {
-    animals: []
-  }
-
-  componentDidMount() {
-    event.onClick()
-    .then(this.setState({ animals: animals.id}))
-    .catch(err => console.log(err));
-  }
-  
-
-  render() {
-    return (
-      <div>
-        <Navbar />
-        <SimpleModalWrapped
-          onClick={this.onClick}
-          animals={this.state.video} 
-        />
-
-     </div>
-    );
-  }
+   );
+ }
 }
-
-export default Cams;
+export default cams;

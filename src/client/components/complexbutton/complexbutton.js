@@ -99,7 +99,7 @@ function ButtonBases(props) {
             className={classes.imageSrc}
             style={{
      
-            backgroundImage: "src/client/assets/images/cams/gorilla",
+      backgroundImage: "src/client/assets/images/cams/gorilla",
      
       
             }}

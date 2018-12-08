@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
-import { CardMedia } from '@material-ui/core';
-import ButtonBases from '../../components/complexbutton/complexbutton.js'
 
 function rand() {
   return Math.round(Math.random() * 20) - 10;
@@ -29,9 +28,6 @@ const styles = theme => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing.unit * 4,
   },
-  media: {
-    objectfit: 'cover',
-  },
 });
 
 class SimpleModal extends React.Component {
@@ -46,27 +42,14 @@ class SimpleModal extends React.Component {
   handleClose = () => {
     this.setState({ open: false });
   };
-  
+
   render() {
     const { classes } = this.props;
-    const { animal } = this.props;
-
-const gorillaCam = [
-        {
-          alt:'gorilla cam',
-          src: "https://www.youtube.com/embed/pHtOPHLhQME",
-          title: 'Gorilla Cam',
-          width: '33%',
-        },
-      ];
 
     return (
-
       <div>
-           <Button onClick={this.handleOpen}>
-              <ButtonBases />
-           </Button>
-  
+
+        <Button onClick={this.handleOpen}>Click for Live Cam</Button>
         <Modal
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
@@ -74,25 +57,20 @@ const gorillaCam = [
           onClose={this.handleClose}
         >
           <div style={getModalStyle()} className={classes.paper}>
-                <CardMedia
-                     component="iframe"
-                     alt={gorillaCam.alt}
-                     className={classes.media}
-                     height="315"
-                     width="560"
-                     src= "https://www.youtube.com/embed/pHtOPHLhQME"
-                     title={gorillaCam.title}>
-                </CardMedia>
+            <Typography variant="h6" id="modal-title">
+              Text in a modal
+            </Typography>
+            <Typography variant="subtitle1" id="simple-modal-description">
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            </Typography>
             <SimpleModalWrapped />
           </div>
         </Modal>
-        
       </div>
-      );
-    }
+    );
   }
+}
 
-           
 SimpleModal.propTypes = {
   classes: PropTypes.object.isRequired,
 };
