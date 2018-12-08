@@ -2,9 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import MobileStepper from '@material-ui/core/MobileStepper';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
+import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
+
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 const tutorialSteps = [
   {
@@ -63,79 +69,77 @@ const tutorialSteps = [
   }
  ];
  
- const styles = (theme) => ({
+ const styles = theme => ({
   root: {
     maxWidth: '100%',
-    flexGrow: 1
+    flexGrow: 1,
   },
+
   img: {
     height: 600,
+    display: 'block',
     maxWidth: '100%',
     overflow: 'hidden',
-    display: 'block',
-    width: '100%'
-  }
- });
- 
- class Carousel extends React.Component {
+    width: '100%',
+  },
+});
+
+class Carousel extends React.Component {
   state = {
-    activeStep: 0
+    activeStep: 0,
   };
- 
+
   handleNext = () => {
-    this.setState((prevState) => ({
-      activeStep: prevState.activeStep + 1
+    this.setState(prevState => ({
+      activeStep: prevState.activeStep + 1,
     }));
   };
- 
+
   handleBack = () => {
-    this.setState((prevState) => ({
-      activeStep: prevState.activeStep - 1
+    this.setState(prevState => ({
+      activeStep: prevState.activeStep - 1,
     }));
   };
- 
+
+  handleStepChange = activeStep => {
+    this.setState({ activeStep });
+  };
+
   render() {
     const { classes, theme } = this.props;
     const { activeStep } = this.state;
     const maxSteps = tutorialSteps.length;
- 
+
     return (
-      <div className={classes.root}>
-        <img
-          className={classes.img}
-          src={tutorialSteps[activeStep].imgPath}
-          alt={tutorialSteps[activeStep].label}
-        />
+      <div className={classes.root}> 
+        <AutoPlaySwipeableViews
+          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+          index={activeStep}
+          onChangeIndex={this.handleStepChange}
+          enableMouseEvents
+        >
+          {tutorialSteps.map((step, index) => (
+            <div key={step.label}>
+              {Math.abs(activeStep - index) <= 2 ? (
+                <img className={classes.img} src={step.imgPath} alt={step.label} />
+              ) : null}
+            </div>
+          ))}
+        </AutoPlaySwipeableViews>
         <MobileStepper
           steps={maxSteps}
           position="static"
           activeStep={activeStep}
           className={classes.mobileStepper}
           nextButton={
-            <Button
-              size="small"
-              onClick={this.handleNext}
-              disabled={activeStep === maxSteps - 1}
-            >
+            <Button size="small" onClick={this.handleNext} disabled={activeStep === maxSteps - 1}>
               Next
-              {theme.direction === 'rtl' ? (
-                <KeyboardArrowLeft />
-              ) : (
-                <KeyboardArrowRight />
-              )}
+              {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
             </Button>
           }
           backButton={
-            <Button
-              size="small"
-              onClick={this.handleBack}
-              disabled={activeStep === 0}
-            >
-              {theme.direction === 'rtl' ? (
-                <KeyboardArrowRight />
-              ) : (
-                <KeyboardArrowLeft />
-              )}
+            <Button size="small" onClick={this.handleBack} disabled={activeStep === 0}>
+              {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
               Back
             </Button>
           }
@@ -143,11 +147,11 @@ const tutorialSteps = [
       </div>
     );
   }
- }
- 
- Carousel.propTypes = {
+}
+
+Carousel.propTypes = {
   classes: PropTypes.object.isRequired,
-  theme: PropTypes.object.isRequired
- };
- 
- export default withStyles(styles, { withTheme: true })(Carousel);
+  theme: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles, { withTheme: true })(Carousel);

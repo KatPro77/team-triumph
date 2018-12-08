@@ -49,6 +49,7 @@ class SimpleModal extends React.Component {
   
   render() {
     const { classes } = this.props;
+    const { animal } = this.props;
 
 const gorillaCam = [
         {
@@ -60,36 +61,38 @@ const gorillaCam = [
       ];
 
     return (
-      <div>
-        {animal.map(animal => (
-          <Button onClick={this.handleOpen}>
-            <ButtonBases />
-          </Button>
 
-          <Modal
-            aria-labelledby="simple-modal-title"
-            aria-describedby="simple-modal-description"
-            open={this.state.open}
-            onClose={this.handleClose}
-          >
-            <div style={getModalStyle()} className={classes.paper}>
-              <CardMedia
-                component="iframe"
-                alt={gorillaCam.alt}
-                className={classes.media}
-                height="315"
-                width="560"
-                src="https://www.youtube.com/embed/pHtOPHLhQME"
-                title={gorillaCam.title}>
-              </CardMedia>
-            </div>
-          </Modal>
-        ))}
+      <div>
+             <Button onClick={this.handleOpen}>
+              <ButtonBases />
+             </Button>
+  
+        <Modal
+          aria-labelledby="simple-modal-title"
+          aria-describedby="simple-modal-description"
+          open={this.state.open}
+          onClose={this.handleClose}
+        >
+          <div style={getModalStyle()} className={classes.paper}>
+                <CardMedia
+                     component="iframe"
+                     alt={gorillaCam.alt}
+                     className={classes.media}
+                     height="315"
+                     width="560"
+                     src= "https://www.youtube.com/embed/pHtOPHLhQME"
+                     title={gorillaCam.title}>
+                </CardMedia>
+            <SimpleModalWrapped />
+          </div>
+        </Modal>
+        
       </div>
       );
     }
   }
-  
+
+           
 SimpleModal.propTypes = {
   classes: PropTypes.object.isRequired,
 };
