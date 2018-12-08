@@ -1,4 +1,22 @@
-//susan added some code here just to be able to test the navbar link to this page; the javascript may need to be updated
+//susan added some code here just to be able to test the navbar link to this page; the javascript below may need to be updated -- LEAH & JORDAN Pls let's chat about this page/habitats page. 
+import React, { Component } from 'react';
+import './animals.css';
+import Navbar from '../../components/navbar/navbar.js'
+import Searchbar from '../../components/searchbar/searchbar.js'
+import Searchresults from '../../components/searchresults/searchresults.js'
+
+
+export default class Animals extends Component {
+  render() {
+    return (
+      <div>
+        <Searchbar />
+        <Searchresults />
+      </div>
+
+    );
+  }
+}
 
 $("#find-animal").on("click", (load()) {
   event.preventDefault()
