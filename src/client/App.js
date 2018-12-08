@@ -6,13 +6,14 @@ import Navbar from '../client/components/navbar/navbar.js';
 import PlayFish from './pages/game-playFish/playFish.js';
 
 
+
     const App = () => (
       <Router>
       <div>
         <Navbar />
         <Switch>
           <Route exact path="/" component={Landing} />
-          <Route exact path="fish" component={PlayFish} />
+          <Route exact path="/fish" component={PlayFish} />
         </Switch>
       </div>
     </Router>

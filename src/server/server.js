@@ -15,10 +15,10 @@ if (process.env.NODE_ENV === 'production') {
 app.use(routes);
 
 //Connect to mysql DB
-Sequelize.connect(
-  process.env.MYSQL_URI || 'mysqldb://localhost/reactanimalslist'
-);
+// Sequelize.connect(
+//   process.env.MYSQL_URI || 'mysqldb://localhost/reactanimalslist'
+// );
 
 app.listen(PORT, function() {
-  console.log(`🌎  ==> Server is listening on PORT {PORT}!`);
+  console.log(`🌎  ==> Server is listening on PORT ${PORT}!`);
 });
