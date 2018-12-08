@@ -1,56 +1,37 @@
 import React, { Component } from 'react'
 import './cams.css'
-import Navbar from '../../components/navbar/navbar.js'
 import SimpleModalWrapped from '../../components/modal/modal.js'
-import ButtonBases from '../../components/complexbutton/complexbutton.js'
+import animals from './animals.json'
+import { Typography } from '@material-ui/core'
+import ButtonBase from './complexbutton.js'
 
+class cams extends Component {
+  // Setting this.state.friends to the animals json array
+  state = {
+    animals
+  };
 
-  
-const gorillaCam = [
-    {
-      alt:'gorilla cam',
-      src: "https://www.youtube.com/embed/pHtOPHLhQME",
-      title: 'Gorilla Cam',
-      width: '33%',
-    }
-  ]; 
-
-  const bearCam = [
-    {
-      alt:'gorilla cam',
-      src: "https://www.youtube.com/embed/pHtOPHLhQME",
-      title: 'Gorilla Cam',
-      width: '33%',
-    },
-  ]; 
-
-  const pandaCam = [
-    {
-      alt:'gorilla cam',
-      src: "https://www.youtube.com/embed/pHtOPHLhQME",
-      title: 'Gorilla Cam',
-      width: '33%',
-    },
-  ]; 
-
-class Cams extends Component {
-  
-handleOpen = () => {
-  this.setState({ open: true });
-      };
-handleClose = () => {
-this.setState({ open: false });
-      };
 
   render() {
     return (
-      <div>
-        <Navbar />
-        <ButtonBases onClick={this.handleOpen}/>
-        <SimpleModalWrapped  />
-     </div>
+      
+      <SimpleModalWrapped>
+      <Typography>Live Cams</Typography>
+      <ButtonBase />
+
+      {this.state.animals.map(animals => (
+        <AnimalCard
+          id={animals.id}
+          key={animals.id}
+          name={animals.name}
+          image={animals.image}
+          video={animals.url}
+        />
+      ))}
+
+    </SimpleModalWrapped>
+
     );
   }
 }
-
-export default Cams;
+export default cams;

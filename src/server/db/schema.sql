@@ -1,5 +1,5 @@
 
-CREATE DATABASE worldofanimals;
+CREATE DATABASE worldofanimals_db;
 USE worldofanimals_db;
 
 CREATE TABLE 'animallist' (
