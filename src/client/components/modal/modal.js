@@ -63,9 +63,9 @@ const gorillaCam = [
     return (
 
       <div>
-             <Button onClick={this.handleOpen}>
+           <Button onClick={this.handleOpen}>
               <ButtonBases />
-             </Button>
+           </Button>
   
         <Modal
           aria-labelledby="simple-modal-title"

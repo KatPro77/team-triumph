@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import './animals.css';
 import Navbar from '../../components/navbar/navbar.js'
-import Searchbar from '../../components/searchbar/searchbar.js'
+import SearchCard from '../../components/searchbar/searchform.js'
 import Searchresults from '../../components/searchresults/searchresults.js'
 
 
@@ -10,7 +10,7 @@ export default class Animals extends Component {
   render() {
     return (
       <div>
-        <Searchbar />
+        <SearchCard />
         <Searchresults />
       </div>
 
