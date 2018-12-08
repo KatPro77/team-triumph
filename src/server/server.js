@@ -14,9 +14,9 @@ if (process.env.NODE_ENV === 'production') {
 }
 app.use(routes);
 
-//Connect to mysql DB
+//Connect to mysql DB - Susan is this code below right?
 sequelize.connect(
-  process.env.MYSQL_URI || 'mysqldb://localhost/reactanimalslist'
+  process.env.MYSQL_URI || 'mysqldb://localhost/worldofanimals_db'
 );
 
 app.listen(PORT, function() {
