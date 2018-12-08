@@ -49,7 +49,7 @@ export default class Navbar extends Component {
                 </MenuItem>
 
                <MenuItem onClick={this.handleClose}>
-                <Link to={'/game-memory'}>Memory Game</Link>
+                <Link to={'/Games'}>Memory Game</Link>
                 </MenuItem>
             </Menu>
             
