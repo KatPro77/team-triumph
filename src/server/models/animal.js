@@ -1,12 +1,9 @@
-const sequelize = require('sequelize');
-const Schema = sequelize.Schema;
+module.exports = function(sequelize, DataTypes) {
+  var Animal = sequelize.define("Animal", {
+    name: { type: DataTypes.STRING, required: true },
+    species: { type: DataTypes.STRING, required: true },
+    lifespan: DataTypes.STRING
+  });
 
-const animalSchema = new Schema({
-  name: { type: String, required: true },
-  species: { type: String, required: true },
-  lifespan: String
-});
-
-const Animal = sequelize.model('Animal', animalSchema);
-
-module.exports = Animal;
+  return Animal;
+};
