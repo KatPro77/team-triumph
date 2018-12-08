@@ -1,8 +1,6 @@
 const db = require('../models');
 
-// Defining methods for the animalsController
-//unsure if we should try to search for ALL animals?
-//also unsure if the species code below is correct?
+//unsure if the species code below is correct, line 7? I referenced uncc class chap 20, activ 11
 module.exports = {
   findAll: function(req, res) {
     db.Animal.find(req.query)
