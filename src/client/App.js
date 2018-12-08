@@ -1,23 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './app.css';
 import Landing from '../client/pages/landing/landing.js'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Navbar from '../client/components/navbar/navbar.js';
-export default class App extends Component {
+import PlayFish from './pages/game-playFish/playFish.js';
 
-  
-  
-  render() {
-    return (
+
+    const App = () => (
       <Router>
       <div>
         <Navbar />
         <Switch>
           <Route exact path="/" component={Landing} />
-          {/* <Route exact path="/cams" component={cams} /> */}
+          <Route exact path="fish" component={PlayFish} />
         </Switch>
       </div>
     </Router>
     );
-  }
-}
+ 
+export default App;
