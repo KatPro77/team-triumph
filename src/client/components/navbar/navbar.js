@@ -8,60 +8,68 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { Link } from 'react-router-dom';
 
 export default class Navbar extends Component {
+ state = {
+   anchorEl: null
+ };
 
-    state = {
-        anchorEl: null,
-    };
+ handleClick = (event) => {
+   this.setState({ anchorEl: event.currentTarget });
+ };
 
-    handleClick = event => {
-        this.setState({ anchorEl: event.currentTarget });
-    };
+ handleClose = () => {
+   this.setState({ anchorEl: null });
+ };
 
-    handleClose = () => {
-        this.setState({ anchorEl: null });
-    };
+ render() {
+   const { anchorEl } = this.state;
+   return (
+     <div>
+       <AppBar position="static">
+         <Toolbar>
+           <IconButton color="inherit" aria-label="Menu">
+             <Menu
+               id="simple-menu"
+               anchorEl={anchorEl}
+               open={Boolean(anchorEl)}
+               onClose={this.handleClose}
+             >
+               <MenuItem onClick={this.handleClose}>
+                 <Link to={'/'}>Home</Link>
+               </MenuItem>
 
-    render() {
-        const { anchorEl } = this.state;
-        return (
-            <div>
-                <AppBar position="static">
-                    <Toolbar>
-                        <IconButton color="inherit" aria-label="Menu">
-                        <Menu
-                            id="simple-menu"
-                            anchorEl={anchorEl}
-                            open={Boolean(anchorEl)}
-                            onClose={this.handleClose}
-                        >
-                            <MenuItem onClick={this.handleClose}>Home</MenuItem>
-                            <MenuItem onClick={this.handleClose}>Animals</MenuItem>
-                            <MenuItem onClick={this.handleClose}>Cams</MenuItem>
-                            <MenuItem onClick={this.handleClose}>Games</MenuItem>
-                            <MenuItem onClick={this.handleClose}>Habitats</MenuItem>
-                            
-                        </Menu>
-                            
-                        </IconButton>
-                        <Typography variant="h6" color="inherit">
-                            World of Animals
-                        </Typography>
+               <MenuItem onClick={this.handleClose}>
+                 <Link to={'/animals'}>Animal Facts</Link>
+               </MenuItem>
 
-                        <Button
-                            aria-owns={anchorEl ? 'simple-menu' : undefined}
-                            aria-haspopup="true"
-                            onClick={this.handleClick}
-                        >
-                            Open Menu
-                        </Button>
-                       
-                    </Toolbar>
-                </AppBar>
+               <MenuItem onClick={this.handleClose}>
+                  <Link to={'/habitats'}>Live Cams</Link>
+                </MenuItem>
 
-            </div>
-        );
-    }
+               <MenuItem onClick={this.handleClose}>
+                <Link to={'/game-memory'}>Memory Game</Link>
+                </MenuItem>
+            </Menu>
+            
+           </IconButton>
+
+
+           <Typography variant="h6" color="inherit">
+             World of Animals
+           </Typography>
+
+           <Button
+             aria-owns={anchorEl ? 'simple-menu' : undefined}
+             aria-haspopup="true"
+             onClick={this.handleClick}
+           >
+             Open Menu
+           </Button>
+         </Toolbar>
+       </AppBar>
+     </div>
+   );
+ }
 }
-

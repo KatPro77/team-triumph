@@ -49,6 +49,7 @@ class SimpleModal extends React.Component {
   
   render() {
     const { classes } = this.props;
+    const { animal } = this.props;
 
 const gorillaCam = [
         {
@@ -60,11 +61,12 @@ const gorillaCam = [
       ];
 
     return (
+
       <div>
-        <Typography gutterBottom>Gorilla Cam</Typography>
              <Button onClick={this.handleOpen}>
+              <ButtonBases />
              </Button>
-        
+  
         <Modal
           aria-labelledby="simple-modal-title"
           aria-describedby="simple-modal-description"
@@ -84,11 +86,12 @@ const gorillaCam = [
             <SimpleModalWrapped />
           </div>
         </Modal>
+        
       </div>
     );
   }
 }
-
+           
 SimpleModal.propTypes = {
   classes: PropTypes.object.isRequired,
 };
