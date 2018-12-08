@@ -14,6 +14,7 @@ export default class App extends Component {
         <Navbar />
         <Switch>
           <Route exact path="/" component={Landing} />
+          {/* <Route exact path="/cams" component={cams} /> */}
         </Switch>
       </div>
     </Router>
